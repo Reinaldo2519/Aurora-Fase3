@@ -1,4 +1,4 @@
-"""Testes simples para a Parte 4, sem bibliotecas externas."""
+"""teste de analise energetica"""
 from dados import COLONIA
 from energia import analisar_energia, analisar_leitura_colonia
 
