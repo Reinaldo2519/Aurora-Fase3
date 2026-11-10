@@ -64,6 +64,4 @@ Clima externo: -39 C, vento 13 m/s
 
 `dados.py` guarda os dados; `acesso.py`, `energia.py` e `previsao.py` guardam a lógica; `decisoes.py` guarda as regras; `main.py` executa o fluxo entrada → processamento → saída. `teste_dados.py` verifica a estrutura com testes simples, todos aprovados.
 
-## 8. Limitações
 
-Os dados são simulados e a quantidade de leituras é pequena. Para uso real, bastaria substituir o conteúdo de `dados.py` ou usar `registrar_leitura` com medições reais, sem mudar as demais funções.
