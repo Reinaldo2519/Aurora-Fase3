@@ -6,14 +6,12 @@ from acesso import (
     modulos_nao_essenciais,
     obter_subsistema,
 )
-
 from regras_decisao import avaliar_colonia
 
 from previsao import (
     prever_geracao_eolica,
     prever_geracao_solar,
 )
-
 
 # Recebe a leitura mais recente
 leitura = leitura_atual(COLONIA)
@@ -103,7 +101,6 @@ print(
     ),
     "kW",
 )
-
 print("\nPrevisao solar:")
 print(
     "Horario previsto:",
@@ -117,7 +114,6 @@ print(
     ),
     "kW",
 )
-
 print(
     "\nGeracao total prevista:",
     round(geracao_total_prevista, 2),
