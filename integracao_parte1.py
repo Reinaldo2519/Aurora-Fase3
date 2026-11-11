@@ -1,16 +1,23 @@
 from dados import COLONIA
+
 from acesso import (
     leitura_atual,
     modulos_por_prioridade,
     modulos_nao_essenciais,
     obter_subsistema,
 )
+
 from regras_decisao import avaliar_colonia
+
+from previsao import (
+    prever_geracao_eolica,
+    prever_geracao_solar,
+)
+
 
 # Recebe a leitura mais recente
 leitura = leitura_atual(COLONIA)
 
-# Cada leitura representa um intervalo de uma hora
 intervalo_horas = 1
 
 # Aplica nossas regras usando os dados da Parte 1
@@ -43,6 +50,22 @@ resultado["sistemas_desligar"] = (
     nao_essenciais if resultado["modo"] == "emergencia" else []
 )
 
+# Realiza as previsoes de energia
+previsao_eolica = prever_geracao_eolica(
+    COLONIA,
+    14,
+)
+
+previsao_solar = prever_geracao_solar(
+    COLONIA,
+    "14:00",
+)
+
+geracao_total_prevista = (
+    previsao_eolica["geracao_prevista_kw"]
+    + previsao_solar["geracao_prevista_kw"]
+)
+
 # Exibe os resultados
 print("=== SISTEMA AURORA ===")
 print("Horario:", leitura["horario"])
@@ -63,3 +86,40 @@ for recomendacao in resultado["recomendacoes"]:
 
 print("\nSistemas essenciais:", ", ".join(essenciais))
 print("Sistemas para desligar:", resultado["sistemas_desligar"])
+
+print("\n=== PREVISAO DE ENERGIA ===")
+
+print("\nPrevisao eolica:")
+print(
+    "Vento previsto:",
+    previsao_eolica["vento_ms"],
+    "m/s",
+)
+print(
+    "Geracao prevista:",
+    round(
+        previsao_eolica["geracao_prevista_kw"],
+        2,
+    ),
+    "kW",
+)
+
+print("\nPrevisao solar:")
+print(
+    "Horario previsto:",
+    previsao_solar["horario"],
+)
+print(
+    "Geracao prevista:",
+    round(
+        previsao_solar["geracao_prevista_kw"],
+        2,
+    ),
+    "kW",
+)
+
+print(
+    "\nGeracao total prevista:",
+    round(geracao_total_prevista, 2),
+    "kW",
+)
