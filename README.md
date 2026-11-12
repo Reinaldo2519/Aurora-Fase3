@@ -264,4 +264,91 @@ O desenvolvimento do Aurora Siger demonstra como conceitos fundamentais de progr
 
 Por meio da análise das condições da colônia, o sistema permite gerar alertas, recomendar ações e estimar comportamentos futuros, contribuindo para uma operação mais segura, organizada e eficiente.
 
+## Como instalar e executar o projeto
+
+### 1. Requisitos
+
+É necessário ter o **Python 3** instalado no computador.
+
+O projeto utiliza as bibliotecas:
+- NumPy
+- Pandas
+- Matplotlib
+- Scikit-learn
+
+### 2. Instalar as dependências
+
+Abra o terminal na pasta do projeto e execute:
+
+```bash
+py -m pip install numpy pandas matplotlib scikit-learn
+```
+
+### 3. Executar o sistema completo
+
+Para iniciar o sistema Aurora com as quatro partes integradas, execute:
+
+```bash
+py main.py
+```
+
+O programa apresentará os dados atuais da colônia, a análise energética e as regras de decisão.
+
+Em seguida, solicitará dois parâmetros para as previsões futuras:
+
+- Velocidade do vento em m/s (exemplo: `14`)
+- Horário no formato HH:MM (exemplo: `14:00`)
+
+Pressione **Enter** sem digitar nada para utilizar os valores padrão.
+
+### 4. Executar os testes
+
+Para testar cada módulo separadamente, utilize:
+
+**Parte 2 — Regras de decisão**
+```bash
+py testes_regras_decisao.py
+```
+
+**Parte 3 — Previsão energética**
+```bash
+py testes_previsao.py
+```
+
+**Parte 4 — Análise energética**
+```bash
+py testes_energia.py
+```
+
+### 5. Gerar os gráficos da previsão
+
+Execute:
+
+```bash
+py previsao.py
+```
+
+O programa gera quatro gráficos:
+
+- `grafico_regressao_eolica.png`
+- `grafico_residuos_eolicos.png`
+- `grafico_regressao_solar.png`
+- `grafico_residuos_solares.png`
+
+Os arquivos são salvos na pasta de execução do projeto.
+
+### 6. Estrutura do sistema
+
+| Arquivo | Função |
+|---|---|
+| `main.py` | Integra as quatro partes do sistema |
+| `dados.py` | Armazena os dados da colônia |
+| `acesso.py` | Consulta e organiza os dados |
+| `regras_decisao.py` | Avalia riscos e gera recomendações |
+| `previsao.py` | Realiza previsões por regressão linear |
+| `energia.py` | Analisa geração, consumo e reserva energética |
+| `testes_*.py` | Executam testes dos módulos |
+
 **FIAP – Ciência da Computação | Fase 3 | 2026**
+
+
